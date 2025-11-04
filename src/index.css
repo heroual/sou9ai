@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Moroccan Color Palette */
+    --background: 35 30% 95%;
+    --foreground: 25 40% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 25 40% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 40% 20%;
+
+    /* Moroccan Gold */
+    --primary: 45 80% 55%;
+    --primary-foreground: 25 40% 20%;
+
+    /* Emerald Green */
+    --secondary: 150 60% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Desert Beige */
+    --muted: 35 30% 75%;
+    --muted-foreground: 25 40% 35%;
+
+    /* Deep Blue */
+    --accent: 220 70% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Terracotta Red */
+    --destructive: 15 65% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 30% 85%;
+    --input: 35 30% 90%;
+    --ring: 45 80% 55%;
+
+    --radius: 0.75rem;
+    
+    /* Custom Moroccan Design Tokens */
+    --moroccan-gold: 45 80% 55%;
+    --moroccan-gold-light: 45 85% 65%;
+    --moroccan-gold-dark: 45 75% 45%;
+    
+    --moroccan-emerald: 150 60% 45%;
+    --moroccan-emerald-light: 150 65% 55%;
+    
+    --moroccan-blue: 220 70% 40%;
+    --moroccan-blue-light: 220 75% 50%;
+    
+    --moroccan-terracotta: 15 65% 55%;
+    --moroccan-terracotta-light: 15 70% 65%;
+    
+    --moroccan-beige: 35 30% 85%;
+    --moroccan-beige-dark: 35 35% 65%;
+    
+    /* Gradients */
+    --gradient-souk: linear-gradient(135deg, hsl(45 80% 55% / 0.2), hsl(15 65% 55% / 0.2));
+    --gradient-gold: linear-gradient(135deg, hsl(45 80% 55%), hsl(45 75% 45%));
+    --gradient-emerald: linear-gradient(135deg, hsl(150 60% 45%), hsl(150 55% 35%));
+    
+    /* Shadows */
+    --shadow-moroccan: 0 8px 32px -8px hsl(45 80% 55% / 0.3);
+    --shadow-lantern: 0 0 30px hsl(45 85% 65% / 0.6);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 25 40% 12%;
+    --foreground: 35 30% 90%;
+
+    --card: 25 35% 15%;
+    --card-foreground: 35 30% 90%;
+
+    --popover: 25 35% 15%;
+    --popover-foreground: 35 30% 90%;
+
+    --primary: 45 80% 55%;
+    --primary-foreground: 25 40% 20%;
+
+    --secondary: 150 60% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 25 30% 25%;
+    --muted-foreground: 35 30% 65%;
+
+    --accent: 220 70% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 15 65% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 30% 25%;
+    --input: 25 30% 25%;
+    --ring: 45 80% 55%;
+    
+    --sidebar-background: 25 40% 12%;
+    --sidebar-foreground: 35 30% 90%;
+    --sidebar-primary: 45 80% 55%;
+    --sidebar-primary-foreground: 25 40% 20%;
+    --sidebar-accent: 25 30% 20%;
+    --sidebar-accent-foreground: 35 30% 90%;
+    --sidebar-border: 25 30% 25%;
+    --sidebar-ring: 45 80% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/021/818/559/original/moroccan-zellige-seamless-pattern-vector.jpg');
+    background-repeat: repeat;
+    @apply text-foreground font-sans;
+  }
+
+}
+
+@layer utilities {
+  .font-amiri {
+    font-family: 'Amiri', serif;
+  }
+  
+  .font-sans {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .glow-gold {
+    box-shadow: var(--shadow-lantern);
+  }
+  
+  .zellige-pattern {
+    background-image: 
+      repeating-linear-gradient(45deg, transparent, transparent 10px, hsl(var(--moroccan-gold) / 0.05) 10px, hsl(var(--moroccan-gold) / 0.05) 20px),
+      repeating-linear-gradient(-45deg, transparent, transparent 10px, hsl(var(--moroccan-emerald) / 0.05) 10px, hsl(var(--moroccan-emerald) / 0.05) 20px);
+  }
+  
+  .shadow-moroccan {
+    box-shadow: 
+      0 10px 30px -5px hsl(var(--moroccan-gold) / 0.4),
+      0 0 40px hsl(var(--moroccan-gold) / 0.2);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--moroccan-gold) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--moroccan-gold) / 0.6);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-glow {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
