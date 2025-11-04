@@ -14,6 +14,7 @@ import guideImg from "@/assets/guide-character.jpg";
 import scholarImg from "@/assets/scholar-character.jpg";
 import techImg from "@/assets/tech-character.jpg";
 import alfont from '@/assets/alfont_com_MTHALALVF-Normal.otf';
+import moroccanSoukBg from "@/assets/moroccan-souk-bg.jpg";
 
 interface Agent {
   id: string;
@@ -120,9 +121,12 @@ const Index = () => {
           }
         `}
       </style>
-      {/* Background with zellige pattern */}
-      <div className="fixed inset-0 z-0 bg-gradient-to-b from-moroccan-beige-dark via-moroccan-beige to-moroccan-beige-dark">
-        <div className="absolute inset-0 zellige-pattern opacity-20"></div>
+      {/* Background with Moroccan Souk image */}
+      <div
+        className="fixed inset-0 z-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${moroccanSoukBg})` }}
+      >
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
       </div>
 
       {/* Navigation */}
@@ -135,12 +139,12 @@ const Index = () => {
           className="pt-16 pb-12 text-center"
         >
           <h1 
-            className="text-6xl md:text-8xl font-bold mb-20 text-foreground font-alfont tracking-wide"
+            className="text-6xl md:text-8xl font-bold mb-20 text-white font-alfont tracking-wide"
           >
             سوق الإي آي
           </h1>
           <p
-            className="text-xl md:text-2xl text-foreground/80"
+            className="text-xl md:text-2xl text-white/80"
           >
             اضحك واستافد واقضي غراض أخاي
           </p>
@@ -148,7 +152,7 @@ const Index = () => {
 
         {/* Agent Cards Grid */}
         <div className="container mx-auto px-8 pb-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-12 max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 md:gap-8 lg:gap-12 max-w-7xl mx-auto">
             {agents.map((agent, index) => (
               <AgentCard
                 key={agent.id}

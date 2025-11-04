@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState } from "react";
+import moroccanSoukBg from "@/assets/moroccan-souk-bg.jpg";
 
 interface AgentInfo {
   name: string;
@@ -122,13 +123,12 @@ const About = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Background with zellige pattern */}
-      <div className="fixed inset-0 z-0 bg-gradient-to-b from-moroccan-beige-dark via-moroccan-beige to-moroccan-beige-dark">
-        <div className="absolute inset-0 zellige-pattern opacity-20"></div>
-        {/* Floating lantern effects */}
-        <div className="absolute top-20 right-10 w-4 h-4 bg-moroccan-gold/30 rounded-full animate-float blur-sm"></div>
-        <div className="absolute top-40 left-20 w-3 h-3 bg-moroccan-terracotta/20 rounded-full animate-float blur-sm" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-40 right-1/4 w-5 h-5 bg-moroccan-emerald/20 rounded-full animate-float blur-sm" style={{ animationDelay: '2s' }}></div>
+      {/* Background with Moroccan Souk image */}
+      <div
+        className="fixed inset-0 z-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${moroccanSoukBg})` }}
+      >
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
       </div>
 
       {/* Navigation */}
@@ -156,7 +156,7 @@ const About = () => {
           />
 
           <motion.h1 
-            className="text-7xl md:text-9xl font-bold mb-6 text-moroccan-gold-dark font-amiri tracking-wide drop-shadow-2xl"
+            className="text-7xl md:text-9xl font-bold mb-6 text-white font-amiri tracking-wide drop-shadow-2xl"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5, type: "spring" }}
@@ -168,15 +168,15 @@ const About = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="max-w-5xl mx-auto bg-moroccan-beige/50 backdrop-blur-lg rounded-3xl p-8 border-2 border-moroccan-gold/30 shadow-2xl"
+            className="max-w-5xl mx-auto bg-black/30 backdrop-blur-lg rounded-3xl p-8 border-2 border-moroccan-gold/30 shadow-2xl"
           >
-            <p className="text-2xl md:text-3xl text-foreground/95 leading-relaxed mb-6 font-amiri">
-              حنا فريق مغربي من مدينة تارودانت، تحت إشراف <span className="text-moroccan-gold-dark font-bold">صلاح الدين الحروال</span>، متخصّصين فـ تطوير و خلق الذكاء الاصطناعي بطريقة مغربية حرّة 🇲🇦
+            <p className="text-2xl md:text-3xl text-white/95 leading-relaxed mb-6 font-amiri">
+              حنا فريق مغربي من مدينة تارودانت، تحت إشراف صلاح الدين الهروال، متخصّصين فـ تطوير و خلق الذكاء الاصطناعي بطريقة مغربية حرّة 🇲🇦
             </p>
-            <p className="text-xl md:text-2xl text-foreground/90 leading-relaxed mb-6 font-amiri">
+            <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-6 font-amiri">
               بنينا Sou9 El AI باش أي واحد يقدر يخدم الذكاء الاصطناعي فـ طريقته الخاصة، ولكن بـ لمسة مغربية فيها الزليج، الضحك، و الشاي بالنعناع ☕
             </p>
-            <p className="text-2xl md:text-3xl text-moroccan-gold-dark font-bold font-amiri">
+            <p className="text-2xl md:text-3xl text-moroccan-gold font-bold font-amiri">
               "حنا ماشي شركة… حنا عقل مغربي كايبرمج و يضحك و يخترع!" 🤖💃
             </p>
           </motion.div>
@@ -192,7 +192,7 @@ const About = () => {
           <div className="max-w-5xl mx-auto">
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="bg-gradient-to-br from-moroccan-beige/60 to-moroccan-beige/40 backdrop-blur-md rounded-3xl p-10 border-4 border-moroccan-blue/40 shadow-moroccan relative overflow-hidden"
+              className="bg-black/30 backdrop-blur-md rounded-3xl p-10 border-4 border-moroccan-blue/40 shadow-moroccan relative overflow-hidden"
             >
               {/* AI Circuit decoration */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-400/20 to-purple-500/20 rounded-full blur-3xl"></div>
@@ -201,13 +201,13 @@ const About = () => {
               <h2 className="text-5xl md:text-6xl font-bold text-moroccan-blue mb-6 font-amiri text-center">
                 👨‍💻 الفريق ديالنا
               </h2>
-              <p className="text-2xl md:text-3xl text-foreground/90 leading-relaxed mb-6 font-amiri text-center">
-                فريق صغير ولكن القلب كبير ❤️، جا من <span className="text-moroccan-gold-dark font-bold">تارودانت</span> العاصمة ديال الذكاء المغربي.
+              <p className="text-2xl md:text-3xl text-white/90 leading-relaxed mb-6 font-amiri text-center">
+                فريق صغير ولكن القلب كبير ❤️، جا من <span className="text-moroccan-gold font-bold">تارودانت</span> العاصمة ديال الذكاء المغربي.
               </p>
-              <p className="text-xl md:text-2xl text-foreground/85 leading-relaxed mb-6 font-amiri text-center">
+              <p className="text-xl md:text-2xl text-white/85 leading-relaxed mb-6 font-amiri text-center">
                 نخدمو فـ التطوير، الـ design، و نخلقو AI agents كايهضرو، يفكرو، و يعاونو الناس فـ كل المجالات.
               </p>
-              <p className="text-xl md:text-2xl text-moroccan-gold-dark font-bold font-amiri text-center">
+              <p className="text-xl md:text-2xl text-moroccan-gold font-bold font-amiri text-center">
                 الهدف ديالنا بسيط: نسهلو على المغاربة و العالم يستعملو الذكاء الاصطناعي بـ طابع مغربي أصيل.
               </p>
             </motion.div>
@@ -224,7 +224,7 @@ const About = () => {
           <div className="max-w-5xl mx-auto">
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="bg-gradient-to-br from-moroccan-emerald/20 to-moroccan-beige/40 backdrop-blur-md rounded-3xl p-10 border-4 border-moroccan-emerald/40 shadow-moroccan relative overflow-hidden"
+              className="bg-black/30 backdrop-blur-md rounded-3xl p-10 border-4 border-moroccan-emerald/40 shadow-moroccan relative overflow-hidden"
             >
               {/* Hologram effect */}
               <motion.div
@@ -236,30 +236,30 @@ const About = () => {
               <h2 className="text-5xl md:text-6xl font-bold text-moroccan-emerald mb-6 font-amiri text-center">
                 🧠 Sou9 El AI – السوق ديال الذكاء المغربي
               </h2>
-              <p className="text-2xl md:text-3xl text-foreground/90 leading-relaxed mb-6 font-amiri text-center">
+              <p className="text-2xl md:text-3xl text-white/90 leading-relaxed mb-6 font-amiri text-center">
                 هادي أول منصة مغربية فيها شخصيات AI مغربية حقيقية 👳‍♂️👩‍🍳👩‍🏫
               </p>
-              <p className="text-xl md:text-2xl text-foreground/85 leading-relaxed mb-8 font-amiri text-center">
+              <p className="text-xl md:text-2xl text-white/85 leading-relaxed mb-8 font-amiri text-center">
                 كل شخصية عندها شخصية خاصة بها، كتعاونك فمجالها، و كاتهضر معاك بحال خوت.
               </p>
               
               {/* Examples */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                <div className="bg-moroccan-beige/40 rounded-2xl p-4 border-2 border-moroccan-gold/20">
-                  <p className="text-lg text-foreground/90 font-amiri">🩺 <span className="font-bold">سي الطبيب:</span> يعاونك بالنصائح الصحية ديالو بضحكة خفيفة 😄</p>
+                <div className="bg-black/20 rounded-2xl p-4 border-2 border-moroccan-gold/20">
+                  <p className="text-lg text-white/90 font-amiri">🩺 <span className="font-bold">سي الطبيب:</span> يعاونك بالنصائح الصحية ديالو بضحكة خفيفة 😄</p>
                 </div>
-                <div className="bg-moroccan-beige/40 rounded-2xl p-4 border-2 border-moroccan-terracotta/20">
-                  <p className="text-lg text-foreground/90 font-amiri">🥘 <span className="font-bold">شيف بوت:</span> كتطبخ و تشرح المقادير بحال الوالدة</p>
+                <div className="bg-black/20 rounded-2xl p-4 border-2 border-moroccan-terracotta/20">
+                  <p className="text-lg text-white/90 font-amiri">🥘 <span className="font-bold">شيف بوت:</span> كتطبخ و تشرح المقادير بحال الوالدة</p>
                 </div>
-                <div className="bg-moroccan-beige/40 rounded-2xl p-4 border-2 border-moroccan-blue/20">
-                  <p className="text-lg text-foreground/90 font-amiri">💻 <span className="font-bold">صلاح آي تي:</span> كايفسرلك التكنيك بلا صداع 🧑‍🔧</p>
+                <div className="bg-black/20 rounded-2xl p-4 border-2 border-moroccan-blue/20">
+                  <p className="text-lg text-white/90 font-amiri">💻 <span className="font-bold">صلاح آي تي:</span> كايفسرلك التكنيك بلا صداع 🧑‍🔧</p>
                 </div>
-                <div className="bg-moroccan-beige/40 rounded-2xl p-4 border-2 border-moroccan-gold/20">
-                  <p className="text-lg text-foreground/90 font-amiri">🧙‍♂️ <span className="font-bold">الشيخ:</span> يعطيك الحكمة المغربية فـ كل موقف</p>
+                <div className="bg-black/20 rounded-2xl p-4 border-2 border-moroccan-gold/20">
+                  <p className="text-lg text-white/90 font-amiri">🧙‍♂️ <span className="font-bold">الشيخ:</span> يعطيك الحكمة المغربية فـ كل موقف</p>
                 </div>
               </div>
 
-              <p className="text-lg md:text-xl text-foreground/80 font-amiri text-center italic">
+              <p className="text-lg md:text-xl text-white/80 font-amiri text-center italic">
                 و كل واحد منهم تقدر تضغط عليه باش تشوف الصورة ديالو و تسمع كيفاش كايعرف راسو بطريقة مضحكة و عفوية.
               </p>
             </motion.div>
@@ -273,10 +273,10 @@ const About = () => {
           transition={{ delay: 0.9, duration: 0.8 }}
           className="text-center py-12 px-4"
         >
-          <h2 className="text-6xl md:text-7xl font-bold text-moroccan-gold-dark font-amiri mb-4">
+          <h2 className="text-6xl md:text-7xl font-bold text-white font-amiri mb-4">
             شخصيات السوق 🎭
           </h2>
-          <p className="text-xl md:text-2xl text-foreground/80 font-amiri">
+          <p className="text-xl md:text-2xl text-white/80 font-amiri">
             دوز على أي شخصية باش تعرف عليها أكثر!
           </p>
         </motion.div>
@@ -287,7 +287,7 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 max-w-7xl mx-auto"
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 md:gap-8 lg:gap-12 max-w-7xl mx-auto"
           >
             {agents.map((agent, index) => (
               <motion.div
@@ -296,12 +296,12 @@ const About = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -8, rotate: -1 }}
-                className="relative group cursor-pointer"
+                className="relative group cursor-pointer flex"
                 onClick={() => setSelectedAgent(agent)}
               >
                 {/* Card with Moroccan shop styling */}
                 <div
-                  className={`relative bg-moroccan-beige/40 backdrop-blur-sm rounded-3xl p-6 border-4 ${agent.color} shadow-lg hover:shadow-moroccan transition-all duration-500 overflow-hidden`}
+                  className={`relative bg-black/30 backdrop-blur-sm rounded-3xl p-6 border-4 ${agent.color} shadow-lg hover:shadow-moroccan transition-all duration-500 overflow-hidden h-full`}
                 >
                   {/* Character Image */}
                   <div className="relative mb-4 rounded-2xl overflow-hidden border-2 border-moroccan-gold/20">
@@ -310,7 +310,7 @@ const About = () => {
                       alt={agent.name}
                       className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-moroccan-beige-dark/60 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div className="absolute bottom-2 left-2 text-4xl animate-bounce">
                       {agent.icon}
                     </div>
@@ -322,17 +322,17 @@ const About = () => {
 
                   {/* Agent content */}
                   <div className="relative z-10">
-                    <h3 className="text-2xl font-bold text-moroccan-gold-dark font-amiri mb-2 group-hover:text-moroccan-gold transition-colors">
+                    <h3 className="text-2xl font-bold text-moroccan-gold font-amiri mb-2 group-hover:text-moroccan-gold-light transition-colors">
                       {agent.name} {agent.icon}
                     </h3>
-                    <p className="text-lg text-foreground/80 font-semibold mb-3">
+                    <p className="text-lg text-white/80 font-semibold mb-3">
                       {agent.title}
                     </p>
-                    <p className="text-foreground/70 leading-relaxed mb-4">
+                    <p className="text-white/70 leading-relaxed mb-4">
                       {agent.description}
                     </p>
                     <div className="text-center">
-                      <span className="inline-block px-4 py-2 bg-moroccan-gold/20 rounded-full text-moroccan-gold-dark font-semibold text-sm group-hover:bg-moroccan-gold/30 transition-colors">
+                      <span className="inline-block px-4 py-2 bg-moroccan-gold/20 rounded-full text-moroccan-gold font-semibold text-sm group-hover:bg-moroccan-gold/30 transition-colors">
                         تعرف علي أكثر 👋
                       </span>
                     </div>
@@ -360,22 +360,22 @@ const About = () => {
           transition={{ delay: 1.5, duration: 1 }}
           className="text-center pb-16 px-4"
         >
-          <div className="max-w-4xl mx-auto bg-gradient-to-br from-moroccan-gold/20 to-moroccan-beige/60 backdrop-blur-md rounded-3xl p-10 border-4 border-moroccan-gold/40 shadow-2xl relative overflow-hidden">
+          <div className="max-w-4xl mx-auto bg-black/30 backdrop-blur-md rounded-3xl p-10 border-4 border-moroccan-gold/40 shadow-2xl relative overflow-hidden">
             {/* Decorative Moroccan icons */}
             <div className="absolute top-4 left-4 text-4xl opacity-20">☕</div>
             <div className="absolute top-4 right-4 text-4xl opacity-20">🕌</div>
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-4xl opacity-20">🪬</div>
             
-            <h3 className="text-4xl md:text-5xl font-bold text-moroccan-gold-dark font-amiri mb-6">
+            <h3 className="text-4xl md:text-5xl font-bold text-moroccan-gold font-amiri mb-6">
               💬 الختام
             </h3>
-            <p className="text-2xl md:text-3xl font-amiri text-foreground/95 leading-relaxed mb-6">
-              Sou9 El AI مشروع مغربي حرّ، تصمّم فـ <span className="font-bold text-moroccan-gold-dark">تارودانت</span>، و الهدف منه يوري للعالم أن المغرب قادر يبدع فالذكاء الاصطناعي على طريقتو الخاصة 🌍✨
+            <p className="text-2xl md:text-3xl font-amiri text-white/95 leading-relaxed mb-6">
+              Sou9 El AI مشروع مغربي حرّ، تصمّم فـ <span className="font-bold text-moroccan-gold">تارودانت</span>، و الهدف منه يوري للعالم أن المغرب قادر يبدع فالذكاء الاصطناعي على طريقتو الخاصة 🌍✨
             </p>
-            <p className="text-xl md:text-2xl font-amiri text-foreground/90 leading-relaxed mb-4">
-              بإشراف <span className="font-bold text-moroccan-gold-dark">صلاح الدين الحروال</span> وفريقه،
+            <p className="text-xl md:text-2xl font-amiri text-white/90 leading-relaxed mb-4">
+              بإشراف <span className="font-bold text-moroccan-gold">صلاح الدين الهروال</span> وفريقه،
             </p>
-            <p className="text-2xl md:text-3xl font-bold text-moroccan-gold-dark font-amiri">
+            <p className="text-2xl md:text-3xl font-bold text-moroccan-gold font-amiri">
               حنا ماشي غير ديڤلوپّورز… حنا صُنّاع المستقبل المغربي 🤝🇲🇦
             </p>
           </div>
