@@ -3,6 +3,7 @@ import { Navigation } from "@/components/Navigation";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState } from "react";
 import moroccanSoukBg from "@/assets/moroccan-souk-bg.jpg";
+import { AmbientPhoenix } from "@/components/AmbientPhoenix"; // Import the new component
 
 interface AgentInfo {
   name: string;
@@ -131,11 +132,14 @@ const About = () => {
         <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
       </div>
 
+      {/* Ambient Phoenix Animation Layer */}
+      <AmbientPhoenix zIndex={10} />
+
       {/* Navigation */}
       <Navigation />
 
       {/* Content */}
-      <div className="relative z-10">
+      <div className="relative z-20">
         {/* Hero Section */}
         <motion.section
           initial={{ opacity: 0, y: -30 }}
@@ -281,76 +285,78 @@ const About = () => {
           </p>
         </motion.div>
 
-        {/* Agents Grid */}
-        <div className="container mx-auto px-8 pb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 md:gap-8 lg:gap-12 max-w-7xl mx-auto"
-          >
-            {agents.map((agent, index) => (
-              <motion.div
-                key={agent.name}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -8, rotate: -1 }}
-                className="relative group cursor-pointer flex"
-                onClick={() => setSelectedAgent(agent)}
-              >
-                {/* Card with Moroccan shop styling */}
-                <div
-                  className={`relative bg-black/30 backdrop-blur-sm rounded-3xl p-6 border-4 ${agent.color} shadow-lg hover:shadow-moroccan transition-all duration-500 overflow-hidden h-full`}
+        {/* Agents Grid Layer */}
+        <div className="relative z-30">
+          <div className="container mx-auto px-8 pb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 md:gap-8 lg:gap-12 max-w-7xl mx-auto"
+            >
+              {agents.map((agent, index) => (
+                <motion.div
+                  key={agent.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                  whileHover={{ scale: 1.05, y: -8, rotate: -1 }}
+                  className="relative group cursor-pointer flex"
+                  onClick={() => setSelectedAgent(agent)}
                 >
-                  {/* Character Image */}
-                  <div className="relative mb-4 rounded-2xl overflow-hidden border-2 border-moroccan-gold/20">
-                    <img 
-                      src={agent.image} 
-                      alt={agent.name}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div className="absolute bottom-2 left-2 text-4xl animate-bounce">
-                      {agent.icon}
+                  {/* Card with Moroccan shop styling */}
+                  <div
+                    className={`relative bg-black/30 backdrop-blur-sm rounded-3xl p-6 border-4 ${agent.color} shadow-lg hover:shadow-moroccan transition-all duration-500 overflow-hidden h-full`}
+                  >
+                    {/* Character Image */}
+                    <div className="relative mb-4 rounded-2xl overflow-hidden border-2 border-moroccan-gold/20">
+                      <img 
+                        src={agent.image} 
+                        alt={agent.name}
+                        className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      <div className="absolute bottom-2 left-2 text-4xl animate-bounce">
+                        {agent.icon}
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Decorative corner accent */}
-                  <div className="absolute top-2 right-2 w-8 h-8 border-t-2 border-r-2 border-moroccan-gold/30 rounded-tr-lg group-hover:border-moroccan-gold transition-colors"></div>
-                  <div className="absolute bottom-2 left-2 w-8 h-8 border-b-2 border-l-2 border-moroccan-gold/30 rounded-bl-lg group-hover:border-moroccan-gold transition-colors"></div>
+                    {/* Decorative corner accent */}
+                    <div className="absolute top-2 right-2 w-8 h-8 border-t-2 border-r-2 border-moroccan-gold/30 rounded-tr-lg group-hover:border-moroccan-gold transition-colors"></div>
+                    <div className="absolute bottom-2 left-2 w-8 h-8 border-b-2 border-l-2 border-moroccan-gold/30 rounded-bl-lg group-hover:border-moroccan-gold transition-colors"></div>
 
-                  {/* Agent content */}
-                  <div className="relative z-10">
-                    <h3 className="text-2xl font-bold text-moroccan-gold font-amiri mb-2 group-hover:text-moroccan-gold-light transition-colors">
-                      {agent.name} {agent.icon}
-                    </h3>
-                    <p className="text-lg text-white/80 font-semibold mb-3">
-                      {agent.title}
-                    </p>
-                    <p className="text-white/70 leading-relaxed mb-4">
-                      {agent.description}
-                    </p>
-                    <div className="text-center">
-                      <span className="inline-block px-4 py-2 bg-moroccan-gold/20 rounded-full text-moroccan-gold font-semibold text-sm group-hover:bg-moroccan-gold/30 transition-colors">
-                        تعرف علي أكثر 👋
-                      </span>
+                    {/* Agent content */}
+                    <div className="relative z-10">
+                      <h3 className="text-2xl font-bold text-moroccan-gold font-amiri mb-2 group-hover:text-moroccan-gold-light transition-colors">
+                        {agent.name} {agent.icon}
+                      </h3>
+                      <p className="text-lg text-white/80 font-semibold mb-3">
+                        {agent.title}
+                      </p>
+                      <p className="text-white/70 leading-relaxed mb-4">
+                        {agent.description}
+                      </p>
+                      <div className="text-center">
+                        <span className="inline-block px-4 py-2 bg-moroccan-gold/20 rounded-full text-moroccan-gold font-semibold text-sm group-hover:bg-moroccan-gold/30 transition-colors">
+                          تعرف علي أكثر 👋
+                        </span>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Sparkle effect on hover */}
-                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-moroccan-gold/10 via-transparent to-moroccan-terracotta/10 pointer-events-none"></div>
-                  
-                  {/* Incense smoke effect */}
-                  <motion.div
-                    className="absolute -top-2 right-1/2 w-1 h-8 bg-gradient-to-t from-moroccan-gold/40 to-transparent blur-sm opacity-0 group-hover:opacity-100"
-                    animate={{ y: [-10, -20, -10] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  ></motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+                    {/* Sparkle effect on hover */}
+                    <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-moroccan-gold/10 via-transparent to-moroccan-terracotta/10 pointer-events-none"></div>
+                    
+                    {/* Incense smoke effect */}
+                    <motion.div
+                      className="absolute -top-2 right-1/2 w-1 h-8 bg-gradient-to-t from-moroccan-gold/40 to-transparent blur-sm opacity-0 group-hover:opacity-100"
+                      animate={{ y: [-10, -20, -10] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    ></motion.div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
 
         {/* Footer Section */}
@@ -372,7 +378,7 @@ const About = () => {
             <p className="text-2xl md:text-3xl font-amiri text-white/95 leading-relaxed mb-6">
               Sou9 El AI مشروع مغربي حرّ، تصمّم فـ <span className="font-bold text-moroccan-gold">تارودانت</span>، و الهدف منه يوري للعالم أن المغرب قادر يبدع فالذكاء الاصطناعي على طريقتو الخاصة 🌍✨
             </p>
-            <p className="text-xl md:text-2xl font-amiri text-white/90 leading-relaxed mb-4">
+            <p className="text-xl md:text-2xl font-amiri text-white/90 leading-relaxed mb-6">
               بإشراف <span className="font-bold text-moroccan-gold">صلاح الدين الهروال</span> وفريقه،
             </p>
             <p className="text-2xl md:text-3xl font-bold text-moroccan-gold font-amiri">
@@ -384,7 +390,7 @@ const About = () => {
 
       {/* Agent Popup Dialog */}
       <Dialog open={!!selectedAgent} onOpenChange={() => setSelectedAgent(null)}>
-        <DialogContent className="max-w-2xl bg-moroccan-beige border-4 border-moroccan-gold/40 rounded-3xl">
+        <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto bg-moroccan-beige border-4 border-moroccan-gold/40 rounded-3xl">
           {selectedAgent && (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}

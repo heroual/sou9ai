@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { AgentCard } from "@/components/AgentCard";
 import { ChatWindow } from "@/components/ChatWindow";
 import { Navigation } from "@/components/Navigation";
+import { AmbientPhoenix } from "@/components/AmbientPhoenix"; // Import the new component
 import chefImg from "@/assets/chef-character.jpg";
 import doctorImg from "@/assets/doctor-character.jpg";
 import herbalistImg from "@/assets/herbalist-character.jpg";
@@ -129,12 +130,14 @@ const Index = () => {
         <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
       </div>
 
+      {/* Ambient Phoenix Animation Layer */}
+      <AmbientPhoenix />
+
       {/* Navigation */}
       <Navigation />
 
-      {/* Content */}
+      {/* Header Layer */}
       <div className="relative z-10">
-        {/* Header */}
         <header
           className="pt-16 pb-12 text-center"
         >
@@ -149,8 +152,10 @@ const Index = () => {
             اضحك واستافد واقضي غراض أخاي
           </p>
         </header>
+      </div>
 
-        {/* Agent Cards Grid */}
+      {/* Agent Cards Grid Layer */}
+      <div className="relative z-30">
         <div className="container mx-auto px-8 pb-20">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 md:gap-8 lg:gap-12 max-w-7xl mx-auto">
             {agents.map((agent, index) => (
@@ -186,7 +191,7 @@ const Index = () => {
           isOpen={!!selectedAgent}
           onClose={() => setSelectedAgent(null)}
           agentName={selectedAgent.name}
-          agentTitle={selectedAgent.title}
+          agentTitle={selected.title}
         />
       )}
     </div>
